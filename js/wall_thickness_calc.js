@@ -239,7 +239,10 @@ document.getElementById('results').innerHTML = `<div id="results-table"></div>`
 var table = new Tabulator("#results-table", {
     height:0, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
     data:tableData, //assign data to table
-    layout:"fitColumns", //fit columns to width of table (optional)
+    layout:"fitDataStretch", //fit columns to width of table (optional)
+    columnDefaults:{
+        resizable:"header"
+    },
     columns:[ //Define Table Columns
         {title:"Input values to show results", field:"DN"},
     ],
