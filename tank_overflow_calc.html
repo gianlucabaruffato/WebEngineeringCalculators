@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tank Overflow</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <script src="js/chartjs-plugin-zoom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/1.4.0/chartjs-plugin-annotation.js" integrity="sha512-es3XL5vwq08UWKA+Fp6tZVTcJ4Kh25GsgsCSkBbPlX6QmDn3YJX0yhUVhPYQUoPX/gUFXf7uH0YtuZHGPj4iHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/tank_overflow_calc.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="body">
+    <div id="navbar-template"></div>
+
+    <!-- Main set of bootstap columns -->
+
+    <div class="container mt-4">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-7">
+                <div class="card">
+                        <h5 class="card-header">
+                        Inputs
+                        </h5>
+                    <div class="card-body">
+                        <!-- Input DN or NPS selection -->
+                        <div id="diameter-input">
+                            <div class="input-group mb-3">
+
+                                <label class="input-group-text input-group-text-tank" for="D" style="width: 147px;">Choose</label>
+                                <input type="radio" class="btn-check" name="DN-NPS-toggle" id="DN-toggle" autocomplete="off" checked onclick="diameterInputType('DN')">
+                                <label class="btn btn-outline-secondary" for="DN-toggle">DN</label>
+                            
+                                <input type="radio" class="btn-check" name="DN-NPS-toggle" id="NPS-toggle" autocomplete="off" onclick="diameterInputType('NPS')">
+                                <label class="btn btn-outline-secondary" for="NPS-toggle">NPS</label>
+
+                                <select class="form-select" id="D">
+                                    <option selected>Choose...</option>
+                                    <option value="1">6</option>
+                                    <option value="2">10</option>
+                                    <option value="3">15</option>
+                                    <option value="4">20</option>
+                                    <option value="5">25</option>
+                                    <option value="6">32</option>
+                                    <option value="7">40</option>
+                                    <option value="8">50</option>
+                                    <option value="9">65</option>
+                                    <option value="10">80</option>
+                                    <option value="11">90</option>
+                                    <option value="12">100</option>
+                                    <option value="13">125</option>
+                                    <option value="14">150</option>
+                                    <option value="15">200</option>
+                                    <option value="16">250</option>
+                                    <option value="17">300</option>
+                                    <option value="18">350</option>
+                                    <option value="19">400</option>
+                                    <option value="20">450</option>
+                                    <option value="21">500</option>
+                                    <option value="22">550</option>
+                                    <option value="23">600</option>
+                                    <option value="24">650</option>
+                                    <option value="25">700</option>
+                                    <option value="26">750</option>
+                                    <option value="27">800</option>
+                                    <option value="28">850</option>
+                                    <option value="29">900</option>
+                                    <option value="30">1050</option>>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Volumetric flow input -->
+                        <div class="input-group mb-3"> 
+                            <label class="input-group-text input-group-text-tank" for="Q_L-Units">Required volumetric flow rate</label>
+                            <input type="number" step="0.01" class="form-control" max="99999" min="0" id="Q_L">
+                            <select class="form-select" id="Q_L-units">
+                                <option value="0" selected>m³/h</option>
+                                <option value="1">m³/s</option>
+                                <option value="2">l/min</option>
+                                <option value="3">ft³/s</option>
+                            </select>
+                        </div>
+
+                        <!-- Liquid level height input -->
+                        <div class="input-group mb-3">
+                            <label class="input-group-text input-group-text-tank" for="h-units">Liquid level above nozzle</label>
+                            <input type="number" step="0.01" class="form-control" max="99999" min="0" id="h">
+                            <select class="form-select" id="h-units">
+                                <option value="0" selected>m</option>
+                                <option value="1">ft</option>
+                                <option value="2">in</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="mainCompute()">Calculate</button>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <h5 class="card-header">Results</h5>
+                    <div class="card-body">
+                        <div id="results">
+                            <span class="info-text">Please input values to show results</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="chart-place"></div>
+            </div>
+    
+    <!-- Bootstrap and templates -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="js/common_templates/navbar.js"></script>
+
+</body>
+</html>

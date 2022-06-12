@@ -1,0 +1,173 @@
+@font-face {
+    font-family: Campton;
+    src: url(../fonts/CamptonMedium.otf) format("opentype");
+}
+
+@font-face {
+    font-family: CamptonBook;
+    src: url(../fonts/CamptonBook.otf) format("opentype");
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.body {
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    font-family: Campton;
+    color: rgb(73, 73, 73);
+}
+
+.input-group-text-tank {
+    width: 250px;
+}
+
+.input-group-text-last {
+    width: 40px;
+}
+
+.btn-outline-secondary {
+    border-color: rgb(211, 211, 211);
+}
+
+.span-brand {
+    margin: 10%;
+}
+
+.zoom-btn {
+    margin-right: 10px;
+    background-color: rgb(250, 250, 250) !important;
+    color: #1871b9;
+    margin-bottom: 10px;
+    font-size: small;
+}
+
+.zoom-btn:hover, .zoom-btn:focus {
+    color: #648cad;
+    background-color: #7b9cb8;
+}
+
+.card-header-inter {
+    margin-left: -16px;
+    margin-right: -16px;
+    margin-bottom: 15px;
+    border-top: solid 1px;
+    border-color: rgb(206, 206, 206);
+}
+
+.card {
+    margin-bottom: 30px;
+}
+
+.durand-input-text {
+    width: 240px;
+}
+
+.durand-results {
+    text-align: right;
+}
+
+.form-pres {
+    max-width: fit-content;
+}
+
+.input-factor {
+    width: 38px;
+}
+
+.form-factor {
+    max-width: 67px;
+}
+
+.pres-input-wallt {
+    width: 137px; 
+    padding-left: 7px
+}
+
+.help {
+    height: 38px;
+    padding: 0 0 0 0;
+}
+
+.card {
+    border: solid 1px #1871b9;
+    border-top-left-radius: 33px !important;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+.card-header {
+    background-color: #1871b9;
+    color: white;
+    border: solid 0px;
+    padding: 20px 20px 20px 30px;
+    text-transform: uppercase;
+    border-top-left-radius: 30px !important;
+    border-bottom-right-radius: 30px !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+.card-special-table {
+    border-bottom-right-radius: 0 !important;
+}
+
+.info-text {
+    color: rgb(100, 100, 100);
+    font-family: CamptonBook;
+}
+
+.input-toggle {
+    max-width: 500px;
+    padding-bottom: 15px;
+}
+
+.input-select-btn {
+    max-width: 90px !important;
+    width: 90px !important;
+    padding: 5px 5px;
+}
+
+.input-group-text, .form-control, .form-select {
+    color: rgb(107, 107, 107);
+}
+
+.btn-primary {
+    border-top-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    background-color: #1871b9;
+    
+}
+
+.btn-check:active+.btn, .btn-check:checked+.btn, .btn.active, .btn.show, .btn:active {
+    background-color: #1871b9;
+}
+
+.btn-outline-primary:hover, .btn-primary:hover {
+    background-color: #1f6aa7;
+}
+
+.btn-group {
+    border-top-left-radius: 15px !important;
+}
+
+.popover-header {
+    background-color: #3980bb;
+    color: white;
+}
+
+.popover {
+    box-shadow: rgba(134, 134, 134, 0.507) 3px 3px 5px;
+}
