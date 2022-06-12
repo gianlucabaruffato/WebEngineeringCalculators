@@ -127,6 +127,10 @@ input[type=number] {
     font-family: CamptonBook;
 }
 
+.max-w-col {
+    max-width: 780px;
+}
+
 .input-toggle {
     max-width: 500px;
     padding-bottom: 15px;
