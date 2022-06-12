@@ -100,7 +100,7 @@ input[type=number] {
 
 .card {
     border: solid 1px #1871b9;
-    border-top-left-radius: 33px !important;
+    border-top-left-radius: 31px !important;
     border-bottom-right-radius: 30px;
     border-top-right-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
